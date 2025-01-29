@@ -2,7 +2,7 @@
 blz78suf - suffix trie-based optimal LZ78 parsing for Brainfuck code
 generation. Makes no assumptions on cell size, cell wrapping behaviours
 or tape wrapping behaviours of the underlying interpreter. Asymptotically
-optimal for highly redundant inputs.Released to the public domain by
+optimal for highly redundant inputs. Released to the public domain by
 Kamila Szewczyk - see COPYING. 
 
 Project homepage: https://github.com/kspalaiologos/blz78suf
@@ -21,7 +21,7 @@ $ sudo make install
 
 ## Algorithm description
 
-Standard brainfuck text generation algorithms are usually stateless (i.e.
+Standard Brainfuck text generation algorithms are usually stateless (i.e.
 load a byte value, output, clear, repeat) or use otherwise low order finite
 state. Using [optimal constants](https://esolangs.org/wiki/Brainfuck_constants)
 for such a generator renders it optimal on IID inputs. The generator is still
@@ -34,7 +34,7 @@ window level can be exploited by computing a 256x256 table of optimal transition
 phrases between cell values.
 
 This however does not approximate real, variable order redundancy in the source.
-Techniques that implement data compressors in brainfuck and load the compressed
+Techniques that implement data compressors in Brainfuck and load the compressed
 data to memory, decompressing it at the runtime, generally exhibit poor performance
 characteristics due to the high overhead of random memory access in Brainfuck
 (fastest algorithms are quintic-time).
@@ -58,8 +58,8 @@ int main() {
 }
 ```
 
-Had an approperiate, sufficiently repetitive phrase been chosen. The benefit of this
-approach is that we can deduplicate repeating phrases and delegate the more granular,
+Had an appropriate, sufficiently repetitive phrase been chosen. The benefit of this
+approach is that we can deduplicate reoccuring phrases and delegate the more granular,
 lower order redundancy to a stateless generator.
 
 blz78suf builds on a stateless text generator nicked from the CodeGolf StackExchange
